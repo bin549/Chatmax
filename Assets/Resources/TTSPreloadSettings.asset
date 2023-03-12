@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80be64a601ff65e41b0a8036ba872084, type: 3}
+  m_Name: TTSPreloadSettings
+  m_EditorClassIdentifier: 
+  data:
+    voices:
+    - presetVoiceID: CHARLIE
+      phrases:
+      - clipID: d1283262409e9aaa0ccd9403ced2435ffd5d97a78816b1022c1ac78e1fa5beb6
+        textToSpeak: Remember that the way you express love may not be the same as
+          your loved one's preference, so be sure to communicate and ask them how
+          they like to receive love and affection.
+        downloaded: 1
+        downloadProgress: 0
