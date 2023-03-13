@@ -22,3 +22,15 @@ MonoBehaviour:
           they like to receive love and affection.
         downloaded: 1
         downloadProgress: 0
+    - presetVoiceID: REBECCA
+      phrases:
+      - clipID: 1a1ec42df912e78b0dff62b19ca9b36e31d9ad4e1770c2d070eca1e81a45f43d
+        textToSpeak: As an AI language model, I don't have personal opinions or emotions,
+          but I can provide some objective information about the movie "Big Hero
+          6."
+        downloaded: 1
+        downloadProgress: 0
+      - clipID: 50bd03c121945ba5bda06229e82c14bb100d42f42321dd3c6719c10873a26d36
+        textToSpeak: Hello! How may I assist you today?
+        downloaded: 1
+        downloadProgress: 0
