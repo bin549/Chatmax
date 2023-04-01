@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b9922f161d04457db753127140a7749, type: 3}
+  m_Name: 1_Avatar 2
+  m_EditorClassIdentifier: 
+  headName: Woman
+  headModel: {fileID: 5993101819721887886, guid: 4e26fd911e4b90942adf6858144a8cf0, type: 3}

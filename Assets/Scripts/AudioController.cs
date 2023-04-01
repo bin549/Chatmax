@@ -41,7 +41,7 @@ public class AudioController : MonoBehaviour
         {
             _input.gameObject.SetActive(false);
             dialogueText.gameObject.SetActive(false);
-            thinkingText.SetActive(true);
+            thinkingText.gameObject.SetActive(true);
             dialogueText.text = "";
             string words = _input.text.Substring(0, _input.text.Length);
             _input.text = "";
