@@ -26,7 +26,7 @@ public class AudioController : MonoBehaviour
 
     private void Awake()
     {
-            _input.gameObject.SetActive(true);
+        _input.gameObject.SetActive(true);
     }
 
     private void Update()
