@@ -62,13 +62,10 @@ public class AudioController : MonoBehaviour
         thinkingText.SetActive(false);
         dialogueText.gameObject.SetActive(true);
         dialogueText.text = "";
-            foreach (char letter in words.ToCharArray()) {
-             dialogueText.text += letter;
-                        yield return new WaitForSeconds(textSpeed);
- 
-            }
+        foreach (char letter in words.ToCharArray()) {
+         dialogueText.text += letter;
+                    yield return new WaitForSeconds(textSpeed);
+        }
     }
-
-
 }
 
