@@ -20,6 +20,7 @@ public class HeadDisplay : MonoBehaviour
         GameObject instance = Instantiate(_newHead.headModel);
         GameObject head_obj = GameObject.Instantiate(_newHead.headModel, headModel.transform.position, headModel.transform.rotation, headModel.transform);
         head_obj.transform.localPosition = instance.transform.position;
+        head_obj.transform.localRotation = instance.transform.rotation;
         Destroy(instance.gameObject);
     }
 }

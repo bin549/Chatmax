@@ -6,6 +6,8 @@ public class AppSettings : MonoBehaviour
 {
     public bool isBackFromSelectScene = false;
     public bool isBackFromChatScene = false;
+    public bool isUsingKeyboard = false;
+    public bool isFullScreen = true;
     
     public GameObject avatar;
     
