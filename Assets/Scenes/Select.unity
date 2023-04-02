@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -662,13 +662,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 4940656851082942636}
+        m_TargetAssemblyTypeName: ModelSelection, Assembly-CSharp
+        m_MethodName: ToChatScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1325,14 +1325,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 703263327489502398, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4118568205790924655, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7867845060743645392, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1419,13 +1411,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8362350934584633223, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
+--- !u!95 &1955107844 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2600869010370908373, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
+  m_PrefabInstance: {fileID: 1955107843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1955107845 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6922532100103367287, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
+  m_PrefabInstance: {fileID: 1955107843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1955107849 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3592472329325702585, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
+  m_PrefabInstance: {fileID: 1955107843}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1570026720457298072
 Transform:
   m_ObjectHideFlags: 0
@@ -1453,7 +1460,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f6f0ba6f464d446cb08cfa38c3f4988, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionAnimator: {fileID: 1199431281}
+  headWiper: {fileID: 1955107849}
+  chatGPTWiper: {fileID: 1955107845}
+  chatGPTWiperAnimator: {fileID: 1199431281}
+  headWiperAnimator: {fileID: 1955107844}
+  appSettings: {fileID: 0}
+  transitionTime: 1
 --- !u!1 &5241644737189042096
 GameObject:
   m_ObjectHideFlags: 0

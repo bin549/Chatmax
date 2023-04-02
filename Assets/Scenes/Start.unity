@@ -630,10 +630,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c102e7d66ec40409584d1d1afedd68ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transitionFaderAnimator: {fileID: 1903513354}
-  transitionChatGPTWiperAnimator: {fileID: 1903049029}
-  crossfade: {fileID: 1903049027}
+  crossfade: {fileID: 1962868779}
+  circleWipe: {fileID: 1856192521}
+  chatGPTWiper: {fileID: 1903049034}
+  faderAnimator: {fileID: 1903513354}
+  circleAnimator: {fileID: 1856192523}
+  chatGPTWiperAnimator: {fileID: 1903049029}
   transitionTime: 1
+  appSettings: {fileID: 0}
 --- !u!1 &89403580
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,6 +2233,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1509426013}
   m_CullTransparentMesh: 0
+--- !u!1 &1598263957
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1598263959}
+  - component: {fileID: 1598263958}
+  m_Layer: 0
+  m_Name: AppSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1598263958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598263957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d6570b3487b74a60ae0a42e14dc267a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBack: 0
+  avatar: {fileID: 0}
+--- !u!4 &1598263959
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1598263957}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 654.89606, y: 387.15244, z: -2.4751148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1672560760
 GameObject:
   m_ObjectHideFlags: 0
@@ -2333,14 +2383,24 @@ RectTransform:
   m_AnchoredPosition: {x: -607, y: -229}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!224 &1903049027 stripped
+--- !u!224 &1856192521 stripped
 RectTransform:
-  m_CorrespondingSourceObject: {fileID: 6922532100103367287, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7102407420250337365, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
+  m_PrefabInstance: {fileID: 6904072160326623119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1856192523 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6689894713893614653, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
   m_PrefabInstance: {fileID: 6904072160326623119}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &1903049029 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2110333459988641048, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
+  m_PrefabInstance: {fileID: 6904072160326623119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1903049034 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6922532100103367287, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
   m_PrefabInstance: {fileID: 6904072160326623119}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &1903513354 stripped
@@ -2395,6 +2455,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946668683}
   m_CullTransparentMesh: 1
+--- !u!224 &1962868779 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5948608818634117003, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
+  m_PrefabInstance: {fileID: 6904072160326623119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2011953002
 GameObject:
   m_ObjectHideFlags: 0
@@ -3908,13 +3973,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8362350934584633223, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9000295816147422156, guid: 6034418dd8ef9449cabd2ba6fd1fa080, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

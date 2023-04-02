@@ -5,25 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class UIPanelController : MonoBehaviour
 {
-    private Animator UIAnimator;
-    [SerializeField] private Animator transitionFaderAnimator;
-    [SerializeField] private Animator transitionChatGPTWiperAnimator;
+    private Animator openingUIAnimator;
     [SerializeField] private Transform crossfade;
+    [SerializeField] private Transform circleWipe;
+    [SerializeField] private Transform chatGPTWiper;
+    [SerializeField] private Animator faderAnimator;
+    [SerializeField] private Animator circleAnimator;
+    [SerializeField] private Animator chatGPTWiperAnimator;
     public float transitionTime = 1f;
-
+    [SerializeField] private AppSettings appSettings;
+    
     private void Awake()
     {
-        UIAnimator = GetComponent<Animator>();
+        appSettings = GameObject.FindObjectOfType<AppSettings>();
+        openingUIAnimator = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        transitionFaderAnimator.SetTrigger("End");
+        if (appSettings.isBackFromSelectScene) {
+            chatGPTWiper.gameObject.SetActive(true);
+            chatGPTWiperAnimator.SetTrigger("End");
+        } 
+        else if (appSettings.isBackFromChatScene) {
+            circleWipe.gameObject.SetActive(true);
+            circleAnimator.SetTrigger("End");
+        }
+        else
+        {
+            crossfade.gameObject.SetActive(true);
+            faderAnimator.SetTrigger("End");
+        }
     }
 
     public void NextScene() {
-        crossfade.gameObject.SetActive(true);
-        transitionChatGPTWiperAnimator.SetTrigger("Start");
+        chatGPTWiper.gameObject.SetActive(true);
+        chatGPTWiperAnimator.SetTrigger("Start");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
@@ -34,23 +51,23 @@ public class UIPanelController : MonoBehaviour
 
     public void PlayStartToSettingsAnimation()
     {
-        UIAnimator.Play("StartToSettings");
+        openingUIAnimator.Play("StartToSettings");
     }
     
     
     public void PlaySettingsToStartAnimation()
     {
-        UIAnimator.Play("SettingsToStart");
+        openingUIAnimator.Play("SettingsToStart");
     }
     
     public void PlayStartToQuitAnimation()
     {
-        UIAnimator.Play("StartToQuit");
+        openingUIAnimator.Play("StartToQuit");
     }
 
     public void PlayQuitToStartAnimation()
     {
-        UIAnimator.Play("QuitToStart");
+        openingUIAnimator.Play("QuitToStart");
     }
 
     public void QuitApp()
