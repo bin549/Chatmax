@@ -8,6 +8,7 @@ public class AppSettings : MonoBehaviour
     public bool isBackFromChatScene = false;
     public bool isUsingKeyboard = false;
     public bool isFullScreen = true;
+    public bool isEnglish = true;
     
     public GameObject avatar;
     
