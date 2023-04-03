@@ -8,4 +8,7 @@ public class Head : ScriptableObject
 
     [Header("Head Model")]
     public GameObject headModel;
+
+    [Header("Head Avatar")]
+    public GameObject headAvatar;
 }

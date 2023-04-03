@@ -726,7 +726,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6ada83b0b1354e8f815e42127c5f393, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableObjects:
+  scriptableObjects: []
+  scriptableObjects_zh:
+  - {fileID: 11400000, guid: abbfdd481351846b8bc1236da58a5c61, type: 2}
+  - {fileID: 11400000, guid: 1367ab0fc5b5f412f9b33f0c40141b91, type: 2}
+  - {fileID: 11400000, guid: 6e790df7959d74fc3b442ac00bf0056c, type: 2}
+  - {fileID: 11400000, guid: 5db575e7db6a7480bb80b095eeb0bd9e, type: 2}
+  scriptableObjects_en:
   - {fileID: 11400000, guid: 09ffcceab2895407d99db38eb6aa5f24, type: 2}
   - {fileID: 11400000, guid: ba9de50cf85f3452dbf044039b5baeda, type: 2}
   - {fileID: 11400000, guid: 530f2a5b1efa94a67acfd8e917d991c2, type: 2}

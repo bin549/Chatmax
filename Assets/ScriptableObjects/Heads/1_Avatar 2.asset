@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9922f161d04457db753127140a7749, type: 3}
   m_Name: 1_Avatar 2
   m_EditorClassIdentifier: 
-  headName: Woman
-  headModel: {fileID: 5993101819721887886, guid: 4e26fd911e4b90942adf6858144a8cf0, type: 3}
+  headName: Avatar
+  headModel: {fileID: 3837454308246098727, guid: ffd51f1081fd44129841c3b85e2f3e22, type: 3}
+  headAvatar: {fileID: 3837454308246098727, guid: a75062e35aa284a5d8f3f4f380dcfc13, type: 3}

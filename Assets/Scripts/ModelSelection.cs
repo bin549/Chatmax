@@ -11,7 +11,6 @@ public class ModelSelection : MonoBehaviour
     [SerializeField] private Animator headWiperAnimator;
     [SerializeField] private AppSettings appSettings;
     public float transitionTime = 1f;
-    [SerializeField] private GameObject chatRobot;
 
     private void Awake()
     {
