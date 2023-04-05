@@ -27,12 +27,17 @@ public class ModelSelection : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            appSettings.isBackFromChatScene = false;
-            appSettings.isBackFromSelectScene = true;
-            chatGPTWiper.gameObject.SetActive(true);
-            chatGPTWiperAnimator.SetTrigger("Start");
-            StartCoroutine(LoadLevel(0));
+            ToMainScene();
         }
+    }
+
+    public void ToMainScene()
+    {
+        appSettings.isBackFromChatScene = false;
+        appSettings.isBackFromSelectScene = true;
+        chatGPTWiper.gameObject.SetActive(true);
+        chatGPTWiperAnimator.SetTrigger("Start");
+        StartCoroutine(LoadLevel(0));
     }
 
     public void ToChatScene()

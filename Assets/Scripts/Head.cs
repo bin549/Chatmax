@@ -11,4 +11,7 @@ public class Head : ScriptableObject
 
     [Header("Head Avatar")]
     public GameObject headAvatar;
+
+    [Header("Head Sex")]
+    public bool isMale;
 }

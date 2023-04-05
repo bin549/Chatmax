@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScriptableObjectChanger : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class ScriptableObjectChanger : MonoBehaviour
     public int currentHeadIndex = 0;
     [SerializeField] private HeadContainer headContainer;
     private AppSettings appSettings;
+    [SerializeField] private Sprite maleSprite;
+    [SerializeField] private Sprite femaleSprite;
+    [SerializeField] private Image sexUI;
 
     private void Awake()
     {
@@ -51,8 +55,17 @@ public class ScriptableObjectChanger : MonoBehaviour
     {
         if (headDisplay != null)
         {
-            headDisplay.UpdateHead((Head)scriptableObjects[_index]);
-            appSettings.avatar = ((Head)scriptableObjects[_index]).headAvatar;
+            Head head = (Head)scriptableObjects[_index];
+            headDisplay.UpdateHead(head);
+            appSettings.avatar = (head).headAvatar;
+            if (head.isMale) 
+            {
+                sexUI.sprite = maleSprite;
+            }
+            else
+            {
+                sexUI.sprite = femaleSprite;
+            }
             headContainer.UpdateHead();
         }
     }

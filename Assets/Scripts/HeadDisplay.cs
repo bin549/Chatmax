@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class HeadDisplay : MonoBehaviour
 {
-    [Header("Description")] [SerializeField] private Text headName;
-    [Header("Head Model")] [SerializeField] private GameObject headModel;
+    [Header("Description")] 
+    [SerializeField] private Text headName;
+    [Header("Head Model")] 
+    [SerializeField] private GameObject headModel;
 
     public void UpdateHead(Head _newHead)
     {

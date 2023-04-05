@@ -10,10 +10,15 @@ public class SceneUI : MonoBehaviour
     [SerializeField] private Transform circleWipe;
     [SerializeField] private AppSettings appSettings;
     public float transitionTime = 1f;
+      [SerializeField] private GameObject UIComponents;
+      public bool isUIActive = false;
+      [SerializeField] private Sprite microphoneSprite;
+      [SerializeField] private Sprite keyboardSprite;
 
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
+        UIComponents = GameObject.Find("UIComponents");
     }
 
     private void Start()
@@ -30,6 +35,11 @@ public class SceneUI : MonoBehaviour
             circleWipe.gameObject.SetActive(true);
             circleWipeAnimator.SetTrigger("Start");
             StartCoroutine(LoadLevel(0));
+        }
+        if (Input.GetKeyDown(KeyCode.Home))
+        {
+            isUIActive = !isUIActive;
+            UIComponents.SetActive(isUIActive);
         }
     }
 
