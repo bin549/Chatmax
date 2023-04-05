@@ -14,7 +14,7 @@ public class UIPanelController : MonoBehaviour
     [SerializeField] private Animator chatGPTWiperAnimator;
     public float transitionTime = 1f;
     [SerializeField] private AppSettings appSettings;
-    
+
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
@@ -23,11 +23,13 @@ public class UIPanelController : MonoBehaviour
 
     private void Start()
     {
-        if (appSettings.isBackFromSelectScene) {
+        if (appSettings.isBackFromSelectScene)
+        {
             chatGPTWiper.gameObject.SetActive(true);
             chatGPTWiperAnimator.SetTrigger("End");
-        } 
-        else if (appSettings.isBackFromChatScene) {
+        }
+        else if (appSettings.isBackFromChatScene)
+        {
             circleWipe.gameObject.SetActive(true);
             circleAnimator.SetTrigger("End");
         }
@@ -38,13 +40,15 @@ public class UIPanelController : MonoBehaviour
         }
     }
 
-    public void NextScene() {
+    public void NextScene()
+    {
         chatGPTWiper.gameObject.SetActive(true);
         chatGPTWiperAnimator.SetTrigger("Start");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    IEnumerator LoadLevel(int levelIndex) {
+    IEnumerator LoadLevel(int levelIndex)
+    {
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }
@@ -53,13 +57,12 @@ public class UIPanelController : MonoBehaviour
     {
         openingUIAnimator.Play("StartToSettings");
     }
-    
-    
+
     public void PlaySettingsToStartAnimation()
     {
         openingUIAnimator.Play("SettingsToStart");
     }
-    
+
     public void PlayStartToQuitAnimation()
     {
         openingUIAnimator.Play("StartToQuit");
@@ -72,10 +75,10 @@ public class UIPanelController : MonoBehaviour
 
     public void QuitApp()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
                 UnityEditor.EditorApplication.isPlaying = false;
-        #else
-                Application.Quit();
-        #endif
+#else
+        Application.Quit();
+#endif
     }
 }

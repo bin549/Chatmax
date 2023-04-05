@@ -9,9 +9,8 @@ public class AppSettings : MonoBehaviour
     public bool isUsingKeyboard = false;
     public bool isFullScreen = true;
     public bool isEnglish = true;
-    
     public GameObject avatar;
-    
+
     private static AppSettings instance;
 
     private void Awake()
@@ -38,5 +37,4 @@ public class AppSettings : MonoBehaviour
         }
         return null;
     }
-
 }

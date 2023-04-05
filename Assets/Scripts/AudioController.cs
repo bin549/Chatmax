@@ -7,13 +7,13 @@ using System.Linq;
 
 public class AudioController : MonoBehaviour
 {
-    public AudioSource deathAudio;
     [SerializeField] private TTSSpeaker _speaker;
     [SerializeField] private InputField _input;
     [SerializeField] private InputField dialogueText;
     [SerializeField] private GameObject thinkingText;
-    public float textSpeed;
     [SerializeField] private ChatGPTResponse lastChatGPTResponseCache;
+    public AudioSource deathAudio;
+    public float textSpeed;
     private string gptPrompt;
 
     public string ChatGPTMessage
@@ -57,14 +57,15 @@ public class AudioController : MonoBehaviour
     }
 
     private IEnumerator SetTextUI(string words)
-    {   
+    {
         yield return new WaitForSeconds(3);
         thinkingText.SetActive(false);
         dialogueText.gameObject.SetActive(true);
         dialogueText.text = "";
-        foreach (char letter in words.ToCharArray()) {
-         dialogueText.text += letter;
-                    yield return new WaitForSeconds(textSpeed);
+        foreach (char letter in words.ToCharArray())
+        {
+            dialogueText.text += letter;
+            yield return new WaitForSeconds(textSpeed);
         }
     }
 }

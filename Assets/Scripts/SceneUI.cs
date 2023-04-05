@@ -10,12 +10,12 @@ public class SceneUI : MonoBehaviour
     [SerializeField] private Transform circleWipe;
     [SerializeField] private AppSettings appSettings;
     public float transitionTime = 1f;
-    
+
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
     }
-    
+
     private void Start()
     {
         headWipeAnimator.SetTrigger("End");
@@ -33,7 +33,8 @@ public class SceneUI : MonoBehaviour
         }
     }
 
-    IEnumerator LoadLevel(int levelIndex) {
+    private IEnumerator LoadLevel(int levelIndex)
+    {
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }

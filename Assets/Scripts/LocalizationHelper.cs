@@ -12,7 +12,6 @@ public class LocalizationHelper : MonoBehaviour
 
     [SerializeField] private List<LocalizationText> localizationTexts;
 
-
     private void Awake()
     {
         dropdown = GetComponent<TMP_Dropdown>();
@@ -22,9 +21,10 @@ public class LocalizationHelper : MonoBehaviour
 
     private void Start()
     {
-        if (appSettings.isEnglish) {
+        if (appSettings.isEnglish)
+        {
             dropdown.value = 1;
-        } 
+        }
         else
         {
             dropdown.value = 0;

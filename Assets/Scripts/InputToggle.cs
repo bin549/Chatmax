@@ -9,8 +9,7 @@ public class InputToggle : MonoBehaviour
     [SerializeField] private Image image;
     [SerializeField] private AppSettings appSettings;
 
-
-    private void Awake() 
+    private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
         toggle = GetComponent<Toggle>();
@@ -21,15 +20,23 @@ public class InputToggle : MonoBehaviour
     {
         if (appSettings.isUsingKeyboard)
         {
-            if (this.gameObject.name == "Keyboard") {
+            if (this.gameObject.name == "Keyboard")
+            {
                 toggle.isOn = true;
-            } else {
+            }
+            else
+            {
                 toggle.isOn = false;
             }
-        } else {
-            if (this.gameObject.name == "Microphone") {
+        }
+        else
+        {
+            if (this.gameObject.name == "Microphone")
+            {
                 toggle.isOn = true;
-            } else {
+            }
+            else
+            {
                 toggle.isOn = false;
             }
         }
@@ -38,10 +45,11 @@ public class InputToggle : MonoBehaviour
 
     public void toggleEvent()
     {
-        if (toggle.isOn) 
+        if (toggle.isOn)
         {
             image.color = new Color(255, 255, 255, 255);
-            if (this.gameObject.name == "Keyboard") {
+            if (this.gameObject.name == "Keyboard")
+            {
                 appSettings.isUsingKeyboard = true;
             }
             else

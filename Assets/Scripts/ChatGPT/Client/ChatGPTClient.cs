@@ -12,7 +12,7 @@ public class ChatGPTClient : Singleton<ChatGPTClient>
     {
         var url = chatGTPSettings.debug ? $"{chatGTPSettings.apiURL}?debug=true" : chatGTPSettings.apiURL;
 
-        using(UnityWebRequest request = new UnityWebRequest(url, "POST"))
+        using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
             var requestParams = JsonConvert.SerializeObject(new ChatGPTRequest
             {
@@ -37,7 +37,7 @@ public class ChatGPTClient : Singleton<ChatGPTClient>
             request.SetRequestHeader("OpenAI-Organization", chatGTPSettings.apiOrganization);
             var requestStartDateTime = DateTime.Now;
             yield return request.SendWebRequest();
-            if(request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.DataProcessingError)
+            if (request.result == UnityWebRequest.Result.ConnectionError || request.result == UnityWebRequest.Result.DataProcessingError)
             {
                 Debug.Log(request.error);
             }

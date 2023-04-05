@@ -24,7 +24,7 @@ public class ModelSelection : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             appSettings.isBackFromChatScene = false;
@@ -34,7 +34,7 @@ public class ModelSelection : MonoBehaviour
             StartCoroutine(LoadLevel(0));
         }
     }
-    
+
     public void ToChatScene()
     {
         headWiper.gameObject.SetActive(true);
@@ -42,7 +42,8 @@ public class ModelSelection : MonoBehaviour
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    IEnumerator LoadLevel(int levelIndex) {
+    private IEnumerator LoadLevel(int levelIndex)
+    {
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
     }

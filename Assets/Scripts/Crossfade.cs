@@ -11,7 +11,7 @@ public class Crossfade : MonoBehaviour
         transform = GetComponent<Transform>();
     }
 
-    public void Hide() 
+    public void Hide()
     {
         transform.gameObject.SetActive(false);
     }

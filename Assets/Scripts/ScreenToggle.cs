@@ -23,7 +23,8 @@ public class ScreenToggle : MonoBehaviour
         if (appSettings.isFullScreen)
         {
             image.sprite = isOnSprite;
-        } else
+        }
+        else
         {
             image.sprite = isOffSprite;
         }
@@ -36,7 +37,9 @@ public class ScreenToggle : MonoBehaviour
             image.sprite = isOnSprite;
             Screen.fullScreen = true;
             appSettings.isFullScreen = true;
-        } else {
+        }
+        else
+        {
             image.sprite = isOffSprite;
             Screen.fullScreen = false;
             appSettings.isFullScreen = false;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName="Head", menuName="Scriptable Object/Head")]
+[CreateAssetMenu(fileName = "Head", menuName = "Scriptable Object/Head")]
 public class Head : ScriptableObject
 {
     [Header("Head Name")]
