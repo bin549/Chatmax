@@ -9,6 +9,7 @@ public class AppSettings : MonoBehaviour
     public bool isUsingKeyboard = false;
     public bool isFullScreen = true;
     public bool isEnglish = true;
+    public bool isMale = false;
     public GameObject avatar;
 
     private static AppSettings instance;

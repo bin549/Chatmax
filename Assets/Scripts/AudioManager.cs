@@ -38,7 +38,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayHomeSound()
     {
-        audioSource.clip = clipSound;
+        audioSource.clip = homeSound;
         audioSource.Play();
     }
 

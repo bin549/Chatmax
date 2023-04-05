@@ -2665,8 +2665,8 @@ MonoBehaviour:
   slipSound: {fileID: 8300000, guid: 20f2c3af7e0e6d146b82fd14b2c0ebea, type: 3}
   quitSound: {fileID: 8300000, guid: d8109a4dd09a1aa41b3708f3da355934, type: 3}
   tapSound: {fileID: 8300000, guid: 3cdbd39dca5dc0d45ae7cf22e5c53a44, type: 3}
-  homeSound: {fileID: 0}
-  changeSound: {fileID: 8300000, guid: 3cdbd39dca5dc0d45ae7cf22e5c53a44, type: 3}
+  homeSound: {fileID: 8300000, guid: ff055c8a0cb3d0f4ab7964a885696d08, type: 3}
+  changeSound: {fileID: 8300000, guid: 3007b68b599fda44aac204ba5d02498a, type: 3}
   selectedSound: {fileID: 8300000, guid: d8109a4dd09a1aa41b3708f3da355934, type: 3}
 --- !u!4 &1235758031
 Transform:
@@ -3145,6 +3145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   facePanel: {fileID: 9040953409089270415}
+  uiPanelController: {fileID: 0}
 --- !u!1 &1384576459
 GameObject:
   m_ObjectHideFlags: 0
@@ -3610,6 +3611,7 @@ MonoBehaviour:
   isUsingKeyboard: 0
   isFullScreen: 1
   isEnglish: 1
+  isMale: 0
   avatar: {fileID: 0}
 --- !u!4 &1598263959
 Transform:
@@ -5390,7 +5392,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5387500717986318237}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -7595,10 +7597,11 @@ MonoBehaviour:
   - Are you ok?
   - What are you doing?
   - Have a nice day.
+  - Turn a turn.
   scaryTexts_zh:
   - "\u4F60\u6CA1\u4E8B\u5427\uFF1F"
-  - "\u4F60\u8981\u5E72\u561B\uFF1F"
-  - "\u65E9\u4E0A\u597D\u554A\u6211\u7684\u670B\u53CB\u3002"
+  - "\u4F60\u5E72\u561B\uFF1F"
+  - "\u8F6C\u554A\u8F6C\u3002"
   scaryText_en: 
   scaryText_zh: 
   scary_index: 0

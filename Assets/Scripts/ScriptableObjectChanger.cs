@@ -13,7 +13,6 @@ public class ScriptableObjectChanger : MonoBehaviour
     private AudioManager audioManager;
     [SerializeField] private Sprite maleSprite;
     [SerializeField] private Sprite femaleSprite;
-    // [SerializeField] private Image sexUI;
 
     private void Awake()
     {
@@ -61,14 +60,7 @@ public class ScriptableObjectChanger : MonoBehaviour
             Head head = (Head)scriptableObjects[_index];
             headDisplay.UpdateHead(head);
             appSettings.avatar = (head).headAvatar;
-            // if (head.isMale) 
-            // {
-                // sexUI.sprite = maleSprite;
-            // }
-            // else
-            // {
-                // sexUI.sprite = femaleSprite;
-            // }
+            appSettings.isMale = head.isMale;
             headContainer.UpdateHead();
         }
     }
