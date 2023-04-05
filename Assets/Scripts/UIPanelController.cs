@@ -14,10 +14,12 @@ public class UIPanelController : MonoBehaviour
     [SerializeField] private Animator chatGPTWiperAnimator;
     public float transitionTime = 1f;
     [SerializeField] private AppSettings appSettings;
+    [SerializeField] private AudioManager audioManager;
 
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
         openingUIAnimator = GetComponent<Animator>();
     }
 
@@ -42,6 +44,8 @@ public class UIPanelController : MonoBehaviour
 
     public void NextScene()
     {
+        audioManager.PlayClickSound();
+        Cursor.visible = true;
         chatGPTWiper.gameObject.SetActive(true);
         chatGPTWiperAnimator.SetTrigger("Start");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
@@ -55,30 +59,35 @@ public class UIPanelController : MonoBehaviour
 
     public void PlayStartToSettingsAnimation()
     {
+        audioManager.PlaySlipSound();
         openingUIAnimator.Play("StartToSettings");
     }
 
     public void PlaySettingsToStartAnimation()
     {
+        audioManager.PlaySlipSound();
         openingUIAnimator.Play("SettingsToStart");
     }
 
     public void PlayStartToQuitAnimation()
     {
+        audioManager.PlaySlipSound();
         openingUIAnimator.Play("StartToQuit");
     }
 
     public void PlayQuitToStartAnimation()
     {
+        audioManager.PlaySlipSound();
         openingUIAnimator.Play("QuitToStart");
     }
 
     public void QuitApp()
     {
-#if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        audioManager.PlayQuitSound();
+
+            crossfade.gameObject.SetActive(true);
+            faderAnimator.SetTrigger("Start");
+
+
     }
 }

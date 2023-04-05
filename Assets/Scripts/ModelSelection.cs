@@ -10,11 +10,13 @@ public class ModelSelection : MonoBehaviour
     [SerializeField] private Animator chatGPTWiperAnimator;
     [SerializeField] private Animator headWiperAnimator;
     [SerializeField] private AppSettings appSettings;
+    [SerializeField] private AudioManager audioManager;
     public float transitionTime = 1f;
 
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -38,10 +40,12 @@ public class ModelSelection : MonoBehaviour
         chatGPTWiper.gameObject.SetActive(true);
         chatGPTWiperAnimator.SetTrigger("Start");
         StartCoroutine(LoadLevel(0));
+        audioManager.PlayHomeSound();
     }
 
     public void ToChatScene()
     {
+        audioManager.PlaySelectedSound();
         headWiper.gameObject.SetActive(true);
         headWiperAnimator.SetTrigger("Start");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));

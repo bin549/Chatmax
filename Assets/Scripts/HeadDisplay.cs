@@ -17,7 +17,7 @@ public class HeadDisplay : MonoBehaviour
         {
             GameObject.Destroy(headModel.transform.GetChild(0).gameObject);
         }
-        GameObject instance = Instantiate(_newHead.headModel);
+        GameObject instance = GameObject.Instantiate(_newHead.headModel);
         GameObject head_obj = GameObject.Instantiate(_newHead.headModel, headModel.transform.position, headModel.transform.rotation, headModel.transform);
         head_obj.transform.localPosition = instance.transform.position;
         head_obj.transform.localRotation = instance.transform.rotation;

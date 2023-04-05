@@ -10,6 +10,7 @@ public class ScriptableObjectChanger : MonoBehaviour
     public int currentHeadIndex = 0;
     [SerializeField] private HeadContainer headContainer;
     private AppSettings appSettings;
+    private AudioManager audioManager;
     [SerializeField] private Sprite maleSprite;
     [SerializeField] private Sprite femaleSprite;
     [SerializeField] private Image sexUI;
@@ -17,6 +18,7 @@ public class ScriptableObjectChanger : MonoBehaviour
     private void Awake()
     {
         appSettings = FindObjectOfType<AppSettings>();
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void Start()
@@ -39,6 +41,7 @@ public class ScriptableObjectChanger : MonoBehaviour
 
     public void ChangeHead(int _index)
     {
+        audioManager.PlayChangeSound();
         currentHeadIndex += _index;
         if (currentHeadIndex == -1)
         {

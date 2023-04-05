@@ -8,10 +8,12 @@ public class InputToggle : MonoBehaviour
     [SerializeField] private Toggle toggle;
     [SerializeField] private Image image;
     [SerializeField] private AppSettings appSettings;
+    [SerializeField] private AudioManager audioManager;
 
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
         toggle = GetComponent<Toggle>();
         image = transform.parent.gameObject.GetComponent<Image>();
     }
@@ -61,5 +63,6 @@ public class InputToggle : MonoBehaviour
         {
             image.color = new Color(255, 255, 255, 0);
         }
+        audioManager.PlayTapSound();
     }
 }

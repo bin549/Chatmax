@@ -43,8 +43,9 @@ public class AudioController : MonoBehaviour
             dialogueText.gameObject.SetActive(false);
             thinkingText.gameObject.SetActive(true);
             dialogueText.text = "";
-            string words = _input.text.Substring(0, _input.text.Length);
+            string words = _input.text.Substring(0, _input.text.Length) + "answer me in short.";
             _input.text = "";
+            Debug.Log(words);
             StartCoroutine(ChatGPTClient.Instance.Ask(words, (response) =>
             {
                 lastChatGPTResponseCache = response;

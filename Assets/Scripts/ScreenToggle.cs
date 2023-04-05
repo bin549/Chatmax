@@ -10,10 +10,12 @@ public class ScreenToggle : MonoBehaviour
     [SerializeField] private Sprite isOnSprite;
     [SerializeField] private Sprite isOffSprite;
     [SerializeField] private AppSettings appSettings;
+    [SerializeField] private AudioManager audioManager;
 
     private void Awake()
     {
         appSettings = FindObjectOfType<AppSettings>();
+        audioManager = GameObject.FindObjectOfType<AudioManager>();
         toggle = GetComponent<Toggle>();
         image = transform.GetChild(0).GetComponent<Image>();
     }
@@ -44,5 +46,6 @@ public class ScreenToggle : MonoBehaviour
             Screen.fullScreen = false;
             appSettings.isFullScreen = false;
         }
+        audioManager.PlayTapSound();
     }
 }
