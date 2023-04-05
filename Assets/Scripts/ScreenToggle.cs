@@ -30,9 +30,16 @@ public class ScreenToggle : MonoBehaviour
         {
             image.sprite = isOffSprite;
         }
+        Screen.fullScreen = appSettings.isFullScreen;
     }
 
-    public void toggleEvent()
+    public void ClickToggle()
+    {
+        audioManager.PlayTapSound();
+        ToggleEvent();
+    }
+
+    public void ToggleEvent()
     {
         if (toggle.isOn)
         {
@@ -46,6 +53,5 @@ public class ScreenToggle : MonoBehaviour
             Screen.fullScreen = false;
             appSettings.isFullScreen = false;
         }
-        audioManager.PlayTapSound();
     }
 }

@@ -12,14 +12,18 @@ public class UIPanelController : MonoBehaviour
     [SerializeField] private Animator faderAnimator;
     [SerializeField] private Animator circleAnimator;
     [SerializeField] private Animator chatGPTWiperAnimator;
-    public float transitionTime = 1f;
     [SerializeField] private AppSettings appSettings;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private FacePanel facePanel;
+
+    private MouseCursor mouseCursor;
+    public float transitionTime = 1f;
 
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();
+        mouseCursor = GameObject.FindObjectOfType<MouseCursor>();
         openingUIAnimator = GetComponent<Animator>();
     }
 
@@ -44,6 +48,7 @@ public class UIPanelController : MonoBehaviour
 
     public void NextScene()
     {
+        mouseCursor.gameObject.SetActive(false);
         audioManager.PlayClickSound();
         Cursor.visible = true;
         chatGPTWiper.gameObject.SetActive(true);
@@ -73,6 +78,7 @@ public class UIPanelController : MonoBehaviour
     {
         audioManager.PlaySlipSound();
         openingUIAnimator.Play("StartToQuit");
+        facePanel.ChangeHappyMood();
     }
 
     public void PlayQuitToStartAnimation()
@@ -84,10 +90,7 @@ public class UIPanelController : MonoBehaviour
     public void QuitApp()
     {
         audioManager.PlayQuitSound();
-
-            crossfade.gameObject.SetActive(true);
-            faderAnimator.SetTrigger("Start");
-
-
+        crossfade.gameObject.SetActive(true);
+        faderAnimator.SetTrigger("Start");
     }
 }

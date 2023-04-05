@@ -45,6 +45,12 @@ public class InputToggle : MonoBehaviour
         toggleEvent();
     }
 
+    public void ClickToggle()
+    {
+        audioManager.PlayTapSound();
+        toggleEvent();
+    }
+
     public void toggleEvent()
     {
         if (toggle.isOn)
@@ -63,6 +69,5 @@ public class InputToggle : MonoBehaviour
         {
             image.color = new Color(255, 255, 255, 0);
         }
-        audioManager.PlayTapSound();
     }
 }
