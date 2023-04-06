@@ -21,11 +21,13 @@ public class SceneUI : MonoBehaviour
     [SerializeField] private Sprite maleSprite;
     [SerializeField] private Sprite femaleSprite;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private QAController qaController;
 
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();
+        qaController = GameObject.FindObjectOfType<QAController>();
     }
 
     private void Start()
@@ -38,13 +40,22 @@ public class SceneUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            BackHome();
+            if (isUIActive) 
+            {
+                BackHome();
+            } 
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             isUIActive = !isUIActive;
             UIComponents.SetActive(isUIActive);
             audioManager.PlayTapSound();
+            if (isUIActive)
+            {
+                qaController.Clear();
+            } else {
+                qaController.Show();
+            }
         }
     }
 

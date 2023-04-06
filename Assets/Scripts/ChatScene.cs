@@ -6,6 +6,10 @@ public class ChatScene : MonoBehaviour
 {
     private AppSettings appSettings;
     [SerializeField] private GameObject chatAvatar;
+    [SerializeField] private OVRLipSyncContextMorphTarget lipSyncContextMorphTarget;
+    [SerializeField] private GameObject femaleAvatar;
+    [SerializeField] private GameObject robotAvatar;
+
 
     private void Awake()
     {
@@ -14,6 +18,24 @@ public class ChatScene : MonoBehaviour
 
     private void Start()
     {
-        chatAvatar = Instantiate(appSettings.avatar);
+        SetupAvatat();
+    }
+
+    private void SetupAvatat()
+    {
+        if (appSettings.isFemaleAvatar) {
+            femaleAvatar.SetActive(true);
+        } 
+        else if (appSettings.isRobotAvatar) 
+        {
+            robotAvatar.SetActive(true);
+            femaleAvatar.SetActive(false);
+        }
+        else
+        {
+            robotAvatar.SetActive(false);
+            femaleAvatar.SetActive(false);
+            chatAvatar = GameObject.Instantiate(appSettings.avatar);
+        }
     }
 }

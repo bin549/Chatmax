@@ -19,6 +19,9 @@ public class LocalizationHelper : MonoBehaviour
         localizationTexts = FindObjectsOfType<LocalizationText>().ToList();
     }
 
+ 
+
+
     private void Start()
     {
         if (appSettings.isEnglish)

@@ -15,3 +15,6 @@ MonoBehaviour:
   headName: Human
   headModel: {fileID: 1729616000960218, guid: fc83f2be36b794f699d3310c28a3abec, type: 3}
   headAvatar: {fileID: 1729616000960218, guid: f3800f68d496147bfb3d7e49b7c0695d, type: 3}
+  isMale: 0
+  isFemaleAvatar: 1
+  isRobotAvatar: 0

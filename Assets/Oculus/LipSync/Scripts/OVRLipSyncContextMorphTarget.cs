@@ -143,15 +143,15 @@ public class OVRLipSyncContextMorphTarget : MonoBehaviour
     /// </summary>
     void CheckForKeys()
     {
-        if (enableVisemeTestKeys)
-        {
-            for (int i = 0; i < OVRLipSync.VisemeCount; ++i)
-            {
-                CheckVisemeKey(visemeTestKeys[i], i, 100);
-            }
-        }
+        // if (enableVisemeTestKeys)
+        // {
+        //     for (int i = 0; i < OVRLipSync.VisemeCount; ++i)
+        //     {
+        //         CheckVisemeKey(visemeTestKeys[i], i, 100);
+        //     }
+        // }
 
-        CheckLaughterKey();
+        // CheckLaughterKey();
     }
 
     /// <summary>

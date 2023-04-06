@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip homeSound;
     [SerializeField] private AudioClip changeSound;
     [SerializeField] private AudioClip selectedSound;
+    [SerializeField] private AudioClip typeSound;
+    [SerializeField] private AudioClip thinkingSound;
+    [SerializeField] private AudioClip thinkedSound;
     private static AudioManager instance;
 
     private void Awake()
@@ -69,6 +72,24 @@ public class AudioManager : MonoBehaviour
     public void PlaySelectedSound()
     {
         audioSource.clip = selectedSound;
+        audioSource.Play();
+    }
+
+    public void PlayTypeSound()
+    {
+        audioSource.clip = typeSound;
+        audioSource.Play();
+    }
+
+    public void PlayThinkingSound()
+    {
+        audioSource.clip = thinkingSound;
+        audioSource.Play();
+    }
+    
+    public void PlayThinkedSound()
+    {
+        audioSource.clip = thinkedSound;
         audioSource.Play();
     }
 }

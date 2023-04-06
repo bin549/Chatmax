@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae5a46bda3295124c99b0e6537ac7252, type: 3}
   m_Name: Timer Builtins - WitConfiguration
   m_EditorClassIdentifier: 
-  _clientAccessToken: FNJAN3D6IJM5WB7FDWBIZCWMT2QBH4VX
+  _clientAccessToken: IXRSK6UNAVJFTSH2YWPUTLARJDATBH3I
   _appInfo:
-    name: meta_sound_sdk
-    id: 537585125124584
+    name: lipsync_voice
+    id: 977497036948224
     lang: en
     isPrivate: 1
-    createdAt: 2023-04-05T06:56:12-0700
+    createdAt: 2023-04-05T18:11:02-0700
     trainingStatus: 1
     lastTrainDuration: 0
     lastTrainedAt: 1969-12-31T16:00:00-0800
@@ -79,5 +79,5 @@ MonoBehaviour:
     dictation: 
   isDemoOnly: 1
   useConduit: 0
-  _manifestLocalPath: 
+  _manifestLocalPath: ConduitManifest-df1fd432-aea9-4660-b60f-38bbad74718a.json
   excludedAssemblies: []

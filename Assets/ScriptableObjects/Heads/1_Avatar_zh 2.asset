@@ -16,3 +16,5 @@ MonoBehaviour:
   headModel: {fileID: 8103581462772922403, guid: aee5742b45bdf444599123fc814f987e, type: 3}
   headAvatar: {fileID: 2068561745996886782, guid: 45c4f06e010924f0f833c1003425cc04, type: 3}
   isMale: 1
+  isGenerateAvatar: 1
+  isVisibleAvatar: 0

@@ -51,42 +51,42 @@ public class LipSyncDemo_SetCurrentTarget : MonoBehaviour
     // Logic for LipSync_Demo
     void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            targetSet = 0;
-            SetCurrentTarget();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            targetSet = 1;
-            SetCurrentTarget();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            targetSet = 2;
-            SetCurrentTarget();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            targetSet = 3;
-            SetCurrentTarget();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            targetSet = 4;
-            SetCurrentTarget();
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha6))
-        {
-            targetSet = 5;
-            SetCurrentTarget();
+        // if (Input.GetKeyDown(KeyCode.Alpha1))
+        // {
+        //     targetSet = 0;
+        //     SetCurrentTarget();
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha2))
+        // {
+        //     targetSet = 1;
+        //     SetCurrentTarget();
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha3))
+        // {
+        //     targetSet = 2;
+        //     SetCurrentTarget();
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha4))
+        // {
+        //     targetSet = 3;
+        //     SetCurrentTarget();
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha5))
+        // {
+        //     targetSet = 4;
+        //     SetCurrentTarget();
+        // }
+        // else if (Input.GetKeyDown(KeyCode.Alpha6))
+        // {
+        //     targetSet = 5;
+        //     SetCurrentTarget();
 
-        }
-        // Close app
-        if (Input.GetKeyDown (KeyCode.Escape))
-        {
-           Application.Quit();
-        }
+        // }
+        // // Close app
+        // if (Input.GetKeyDown (KeyCode.Escape))
+        // {
+        //    Application.Quit();
+        // }
 
         // VR controllers: primary buttons scrolls forward, secondary backwards
 #if UNITY_2019_1_OR_NEWER

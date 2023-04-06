@@ -21,42 +21,42 @@ public class UIPanelController : MonoBehaviour
 
     private void Awake()
     {
-        appSettings = GameObject.FindObjectOfType<AppSettings>();
-        audioManager = GameObject.FindObjectOfType<AudioManager>();
-        mouseCursor = GameObject.FindObjectOfType<MouseCursor>();
-        openingUIAnimator = GetComponent<Animator>();
+        this.appSettings = GameObject.FindObjectOfType<AppSettings>();
+        this.audioManager = GameObject.FindObjectOfType<AudioManager>();
+        this.mouseCursor = GameObject.FindObjectOfType<MouseCursor>();
+        this.openingUIAnimator = GetComponent<Animator>();
     }
 
     private void Start()
     {
-        if (appSettings.isBackFromSelectScene)
+        if (this.appSettings.isBackFromSelectScene)
         {
-            chatGPTWiper.gameObject.SetActive(true);
-            chatGPTWiperAnimator.SetTrigger("End");
+            this.chatGPTWiper.gameObject.SetActive(true);
+            this.chatGPTWiperAnimator.SetTrigger("End");
         }
-        else if (appSettings.isBackFromChatScene)
+        else if (this.appSettings.isBackFromChatScene)
         {
-            circleWipe.gameObject.SetActive(true);
-            circleAnimator.SetTrigger("End");
+            this.circleWipe.gameObject.SetActive(true);
+            this.circleAnimator.SetTrigger("End");
         }
         else
         {
-            crossfade.gameObject.SetActive(true);
-            faderAnimator.SetTrigger("End");
+            this.crossfade.gameObject.SetActive(true);
+            this.faderAnimator.SetTrigger("End");
         }
     }
 
     public void NextScene()
     {
-        mouseCursor.gameObject.SetActive(false);
-        audioManager.PlayClickSound();
+        this.mouseCursor.gameObject.SetActive(false);
+        this.audioManager.PlayClickSound();
         Cursor.visible = true;
-        chatGPTWiper.gameObject.SetActive(true);
-        chatGPTWiperAnimator.SetTrigger("Start");
+        this.chatGPTWiper.gameObject.SetActive(true);
+        this.chatGPTWiperAnimator.SetTrigger("Start");
         StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    IEnumerator LoadLevel(int levelIndex)
+    private IEnumerator LoadLevel(int levelIndex)
     {
         yield return new WaitForSeconds(transitionTime);
         SceneManager.LoadScene(levelIndex);
@@ -64,33 +64,33 @@ public class UIPanelController : MonoBehaviour
 
     public void PlayStartToSettingsAnimation()
     {
-        audioManager.PlaySlipSound();
-        openingUIAnimator.Play("StartToSettings");
+        this.audioManager.PlaySlipSound();
+        this.openingUIAnimator.Play("StartToSettings");
     }
 
     public void PlaySettingsToStartAnimation()
     {
-        audioManager.PlaySlipSound();
-        openingUIAnimator.Play("SettingsToStart");
+        this.audioManager.PlaySlipSound();
+        this.openingUIAnimator.Play("SettingsToStart");
     }
 
     public void PlayStartToQuitAnimation()
     {
-        audioManager.PlaySlipSound();
-        openingUIAnimator.Play("StartToQuit");
+        this.audioManager.PlaySlipSound();
+        this.openingUIAnimator.Play("StartToQuit");
         facePanel.ChangeHappyMood();
     }
 
     public void PlayQuitToStartAnimation()
     {
-        audioManager.PlaySlipSound();
-        openingUIAnimator.Play("QuitToStart");
+        this.audioManager.PlaySlipSound();
+        this.openingUIAnimator.Play("QuitToStart");
     }
 
     public void QuitApp()
     {
-        audioManager.PlayQuitSound();
-        crossfade.gameObject.SetActive(true);
-        faderAnimator.SetTrigger("Start");
+        this.audioManager.PlayQuitSound();
+        this.crossfade.gameObject.SetActive(true);
+        this.faderAnimator.SetTrigger("Start");
     }
 }

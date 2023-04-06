@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -810,13 +810,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scriptableObjects: []
   scriptableObjects_zh:
+  - {fileID: 11400000, guid: ba9de50cf85f3452dbf044039b5baeda, type: 2}
   - {fileID: 11400000, guid: abbfdd481351846b8bc1236da58a5c61, type: 2}
   - {fileID: 11400000, guid: 1367ab0fc5b5f412f9b33f0c40141b91, type: 2}
-  - {fileID: 11400000, guid: 6e790df7959d74fc3b442ac00bf0056c, type: 2}
   - {fileID: 11400000, guid: 5db575e7db6a7480bb80b095eeb0bd9e, type: 2}
+  - {fileID: 11400000, guid: 6e790df7959d74fc3b442ac00bf0056c, type: 2}
   scriptableObjects_en:
   - {fileID: 11400000, guid: 09ffcceab2895407d99db38eb6aa5f24, type: 2}
-  - {fileID: 11400000, guid: ba9de50cf85f3452dbf044039b5baeda, type: 2}
   - {fileID: 11400000, guid: 530f2a5b1efa94a67acfd8e917d991c2, type: 2}
   headDisplay: {fileID: 1490469626}
   currentHeadIndex: 0

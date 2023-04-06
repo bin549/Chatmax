@@ -61,6 +61,8 @@ public class ScriptableObjectChanger : MonoBehaviour
             headDisplay.UpdateHead(head);
             appSettings.avatar = (head).headAvatar;
             appSettings.isMale = head.isMale;
+            appSettings.isFemaleAvatar = head.isFemaleAvatar;
+            appSettings.isRobotAvatar = head.isRobotAvatar;
             headContainer.UpdateHead();
         }
     }

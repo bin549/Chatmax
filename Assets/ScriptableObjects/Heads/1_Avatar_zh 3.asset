@@ -15,3 +15,6 @@ MonoBehaviour:
   headName: "\u5C0F\u767D\u4EBA"
   headModel: {fileID: 4785263382600331907, guid: a23cf08b1316a4a6cab32ebf21f08d0d, type: 3}
   headAvatar: {fileID: 330556469229913400, guid: ec176a339780344c8a62b2c469c1f1f8, type: 3}
+  isMale: 0
+  isGenerateAvatar: 1
+  isVisibleAvatar: 0

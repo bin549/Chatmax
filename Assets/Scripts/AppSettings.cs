@@ -11,6 +11,8 @@ public class AppSettings : MonoBehaviour
     public bool isEnglish = true;
     public bool isMale = false;
     public GameObject avatar;
+    public bool isFemaleAvatar = false;
+    public bool isRobotAvatar = false;
 
     private static AppSettings instance;
 
