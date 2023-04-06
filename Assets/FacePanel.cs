@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class FacePanel : MonoBehaviour
 {
     [SerializeField] private Image faceImage;
-    [SerializeField] private Text moodText;
+    [SerializeField] private TMP_Text moodText;
     [SerializeField] private Sprite happyFace;
     [SerializeField] private Sprite sadFace;
     [SerializeField] private Sprite scaryFace;

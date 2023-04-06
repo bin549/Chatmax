@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using Meta.WitAi.TTS.Utilities;
 using System.Linq;
+using TMPro;
 
 public class QAController : MonoBehaviour
 {
     [SerializeField] private TTSSpeaker _speaker;
-    [SerializeField] private InputField questionInputField;
-    [SerializeField] private InputField dialogueText;
+    [SerializeField] private TMP_Text questionInputField;
+    [SerializeField] private GameObject answerDialogue;
+    [SerializeField] private TMP_Text dialogueText;
     [SerializeField] private GameObject thinkingText;
     [SerializeField] private ChatGPTResponse lastChatGPTResponseCache;
     public AudioSource deathAudio;
@@ -52,7 +54,7 @@ public class QAController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return))
         {
             this.questionInputField.gameObject.SetActive(false);
-            this.dialogueText.gameObject.SetActive(false);
+            this.answerDialogue.SetActive(false);
             this.thinkingText.gameObject.SetActive(true);
             this.audioManager.PlayThinkingSound();
             this.dialogueText.text = "";
@@ -85,7 +87,7 @@ public class QAController : MonoBehaviour
     private void Ask()
     {
         this.questionInputField.gameObject.SetActive(true);
-        this.dialogueText.gameObject.SetActive(false);
+        this.answerDialogue.SetActive(false);
         _speaker.Stop();
         this.isAsked = false;
     }
@@ -125,7 +127,7 @@ public class QAController : MonoBehaviour
         this.isAsked = true;
         this.thinkingText.SetActive(false);
         // this.audioManager.PlayThinkedSound();
-        this.dialogueText.gameObject.SetActive(true);
+        this.answerDialogue.SetActive(true);
         this.dialogueText.text = "";
         foreach (char letter in words.ToCharArray())
         {

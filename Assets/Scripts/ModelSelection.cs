@@ -40,7 +40,7 @@ public class ModelSelection : MonoBehaviour
         chatGPTWiper.gameObject.SetActive(true);
         chatGPTWiperAnimator.SetTrigger("Start");
         StartCoroutine(LoadLevel(0));
-        audioManager.PlayHomeSound();
+        audioManager.PlayClickSound();
     }
 
     public void ToChatScene()

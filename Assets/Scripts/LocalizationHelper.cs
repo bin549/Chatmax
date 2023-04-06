@@ -9,42 +9,32 @@ public class LocalizationHelper : MonoBehaviour
 {
     public TMP_Dropdown dropdown;
     public AppSettings appSettings;
-
+    public AudioManager audioManager;
     [SerializeField] private List<LocalizationText> localizationTexts;
 
     private void Awake()
     {
         dropdown = GetComponent<TMP_Dropdown>();
         appSettings = FindObjectOfType<AppSettings>();
+        audioManager = FindObjectOfType<AudioManager>();
         localizationTexts = FindObjectsOfType<LocalizationText>().ToList();
     }
 
- 
-
+    private void OnMouseDown()
+    {
+        audioManager.PlayTapSound();
+    }
 
     private void Start()
     {
-        if (appSettings.isEnglish)
-        {
-            dropdown.value = 1;
-        }
-        else
-        {
-            dropdown.value = 0;
-        }
+        dropdown.value = appSettings.isEnglish ? 1 : 0;
         SwitchLanguage();
     }
 
     public void FlagSwitch()
     {
-        if (dropdown.value == 1)
-        {
-            appSettings.isEnglish = true;
-        }
-        else
-        {
-            appSettings.isEnglish = false;
-        }
+        appSettings.isEnglish = dropdown.value == 1 ? true : false;
+        audioManager.PlayTapSound();
         SwitchLanguage();
     }
 
@@ -52,14 +42,7 @@ public class LocalizationHelper : MonoBehaviour
     {
         foreach (LocalizationText localizationText in localizationTexts)
         {
-            if (dropdown.value == 1)
-            {
-                localizationText.gameObject.GetComponent<Text>().text = localizationText.englishText;
-            }
-            else
-            {
-                localizationText.gameObject.GetComponent<Text>().text = localizationText.chineseText;
-            }
+            localizationText.gameObject.GetComponent<TMP_Text>().text = dropdown.value == 1 ? localizationText.englishText : localizationText.chineseText;
         }
     }
 }

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class HeadDisplay : MonoBehaviour
 {
     [Header("Description")] 
-    [SerializeField] private Text headName;
+    [SerializeField] private TMP_Text headName;
     [Header("Head Model")] 
     [SerializeField] private GameObject headModel;
 
