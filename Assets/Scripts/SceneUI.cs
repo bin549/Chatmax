@@ -22,12 +22,14 @@ public class SceneUI : MonoBehaviour
     [SerializeField] private Sprite femaleSprite;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private QAController qaController;
+    [SerializeField] private Meta.WitAi.TTS.Utilities.TTSSpeaker ttsSpeaker;
 
     private void Awake()
     {
         appSettings = GameObject.FindObjectOfType<AppSettings>();
         audioManager = GameObject.FindObjectOfType<AudioManager>();
         qaController = GameObject.FindObjectOfType<QAController>();
+        ttsSpeaker = GameObject.FindObjectOfType<Meta.WitAi.TTS.Utilities.TTSSpeaker>();
     }
 
     private void Start()
@@ -73,8 +75,10 @@ public class SceneUI : MonoBehaviour
     {
         if (appSettings.isMale) {
             sexImage.sprite = maleSprite;
+            ttsSpeaker.presetVoiceID = "COOPER";
         } else {
             sexImage.sprite = femaleSprite;
+            ttsSpeaker.presetVoiceID = "REBECCA";
         }
         if (appSettings.isUsingKeyboard) 
         {

@@ -382,6 +382,7 @@ MonoBehaviour:
   femaleSprite: {fileID: 21300000, guid: 8f9ff4a1ddc59134b9e895ea32975295, type: 3}
   audioManager: {fileID: 0}
   qaController: {fileID: 0}
+  ttsSpeaker: {fileID: 0}
 --- !u!4 &115721515
 Transform:
   m_ObjectHideFlags: 0
@@ -613,6 +614,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8e8ccec499cfa419a43540af121df9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vertices: []
+  wordIndexes: 
+  wordLengths: 
   rainbow:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
