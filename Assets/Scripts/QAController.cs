@@ -18,12 +18,18 @@ public class QAController : MonoBehaviour
     public float textSpeed;
     private string gptPrompt;
     [SerializeField] private string inputChatStr;
-    [SerializeField] private bool isAsked = false;
+    [SerializeField] private bool isAsked = true;
     private string stackString = "";
-   [SerializeField] private AudioManager audioManager;
-   [SerializeField] private AppSettings appSettings;
-   [SerializeField] private SceneUI sceneUI;
-
+    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private AppSettings appSettings;
+    [SerializeField] private SceneUI sceneUI;
+    [SerializeField] private TTSInteractionHandler ttsInteractionHandler;
+    [SerializeField] private GameObject microphoneLogo;
+    [SerializeField] private GameObject keyboardLogo;
+    public bool isFirstQuestion = true;
+    [SerializeField] private Animator microphoneAnimator;
+    public bool isSpeakng = false;
+    public bool isFirstSpeaking = true;
 
     public string ChatGPTMessage
     {
@@ -48,27 +54,75 @@ public class QAController : MonoBehaviour
             GetQuestionChar();
         }
         if (Input.GetKeyDown(KeyCode.Escape))
-        {  
+        {
             this.Ask();
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Space) && !appSettings.isUsingKeyboard)
         {
-            this.questionInputField.gameObject.SetActive(false);
-            this.answerDialogue.SetActive(false);
-            this.thinkingText.gameObject.SetActive(true);
-            this.audioManager.PlayThinkingSound();
-            this.dialogueText.text = "";
-            string words = this.questionInputField.text.Substring(0, this.questionInputField.text.Length) + "answer me in short.";
-            this.questionInputField.text = "";
-            StartCoroutine(ChatGPTClient.Instance.Ask(words, (response) =>
+            if (this.isAsked)
             {
-                lastChatGPTResponseCache = response;
-                _speaker.Speak(ChatGPTMessage);
-                // StopAllCoroutines();
-                StartCoroutine(SetTextUI(ChatGPTMessage));
-                Debug.Log($"Time: {response.ResponseTotalTime} ms");
-            }));
+                this.microphoneLogo.SetActive(true);
+                this.microphoneAnimator.SetTrigger("Start");
+                this.Ask();
+                this.ttsInteractionHandler.ToggleActivation();
+                isSpeakng = true;
+            }
+            else
+            {
+                if (isSpeakng)
+                {
+                    this.questionInputField.gameObject.SetActive(false);
+                    this.microphoneLogo.SetActive(false);
+                    AskQuestion();
+                    isSpeakng = false;
+                }
+                else
+                {
+                    this.questionInputField.gameObject.SetActive(true);
+                    this.microphoneAnimator.SetTrigger("Start");
+                    if (this.isFirstSpeaking)
+                    {
+                        this.sceneUI.promptField.gameObject.SetActive(false);
+                        this.isFirstSpeaking = false;
+                    }
+                    this.isSpeakng = true;
+                }
+                this.ttsInteractionHandler.ToggleActivation();
+            }
         }
+        if (Input.GetKeyDown(KeyCode.Return) && appSettings.isUsingKeyboard)
+        {
+            if (!this.isAsked)
+            {
+                this.AskQuestion();
+            }
+        }
+    }
+
+    private void AskQuestion()
+    {
+        this.isAsked = true;
+        this.questionInputField.gameObject.SetActive(false);
+        this.answerDialogue.SetActive(false);
+        this.thinkingText.gameObject.SetActive(true);
+        this.audioManager.PlayThinkingSound();
+        this.dialogueText.text = "";
+        string words = questionInputField.text.Trim();
+        Debug.Log(words);
+        if (words.EndsWith("£¿") || words.EndsWith("."))
+            words = words + " in sentence.";
+        else
+            words = words + ". in sentence.";
+        Debug.Log(words);
+        this.questionInputField.text = "";
+        StartCoroutine(ChatGPTClient.Instance.Ask(words, (response) =>
+        {
+            lastChatGPTResponseCache = response;
+            _speaker.Speak(ChatGPTMessage);
+            // StopAllCoroutines();
+            StartCoroutine(SetTextUI(ChatGPTMessage));
+            Debug.Log($"Time: {response.ResponseTotalTime} ms");
+        }));
     }
 
     public void Clear()
@@ -87,19 +141,20 @@ public class QAController : MonoBehaviour
     private void Ask()
     {
         this.questionInputField.gameObject.SetActive(true);
+        this.questionInputField.text = "";
         this.answerDialogue.SetActive(false);
         _speaker.Stop();
         this.isAsked = false;
     }
 
-   private void GetQuestionChar()
-   {
+    private void GetQuestionChar()
+    {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
             if (this.questionInputField.text.Length != 1)
             {
                 this.stackString = this.questionInputField.text;
-                this.questionInputField.text = this.questionInputField.text.Substring(0, this.questionInputField.text.Length-2);
+                this.questionInputField.text = this.questionInputField.text.Substring(0, this.questionInputField.text.Length - 2);
                 // if (this.stackString == this.questionInputField.text)
                 // {
                 //     this.questionInputField.text = this.questionInputField.text.Substring(0, this.questionInputField.text.Length-2);
@@ -112,19 +167,28 @@ public class QAController : MonoBehaviour
 
         foreach (char c in Input.inputString)
         {
-            if (this.isAsked) {
+            if (this.isFirstQuestion)
+            {
+                this.keyboardLogo.SetActive(false);
+                this.isFirstQuestion = false;
+                this.questionInputField.gameObject.SetActive(true);
+                this.questionInputField.text = "";
+                sceneUI.promptField.gameObject.SetActive(false);
+            }
+            if (this.isAsked)
+            {
+                this.keyboardLogo.SetActive(false);
+                this.questionInputField.text = "";
                 this.Ask();
-                     this.questionInputField.text = "";
-                } 
-                this.audioManager.PlayTypeSound();
+            }
+            this.audioManager.PlayTypeSound();
             this.questionInputField.text += c;
         }
-   }
+    }
 
     private IEnumerator SetTextUI(string words)
     {
         yield return new WaitForSeconds(2.5f);
-        this.isAsked = true;
         this.thinkingText.SetActive(false);
         // this.audioManager.PlayThinkedSound();
         this.answerDialogue.SetActive(true);
@@ -136,4 +200,3 @@ public class QAController : MonoBehaviour
         }
     }
 }
-

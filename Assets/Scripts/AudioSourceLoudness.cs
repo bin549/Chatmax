@@ -30,7 +30,7 @@ public class AudioSourceLoudnessTester : MonoBehaviour
             {
                 clipLoudness += Mathf.Abs(sample);
             }
-            clipLoudness /= sampleDataLength; 
+            clipLoudness /= sampleDataLength;
             clipLoudness *= sizeFactor;
             clipLoudness = Mathf.Clamp(clipLoudness, minSize, maxSize);
             cube.transform.localScale = new Vector3(clipLoudness, clipLoudness, clipLoudness);

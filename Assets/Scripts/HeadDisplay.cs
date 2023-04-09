@@ -6,9 +6,9 @@ using TMPro;
 
 public class HeadDisplay : MonoBehaviour
 {
-    [Header("Description")] 
+    [Header("Description")]
     [SerializeField] private TMP_Text headName;
-    [Header("Head Model")] 
+    [Header("Head Model")]
     [SerializeField] private GameObject headModel;
 
     public void UpdateHead(Head _newHead)

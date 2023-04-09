@@ -8,10 +8,22 @@ public class CharacterWobble : MonoBehaviour
     private TMP_Text textMesh;
     private Mesh mesh;
     private Vector3[] vertices;
+    [SerializeField] private float wobbleX = 3.3f;
+    [SerializeField] private float wobbleY = 2.5f;
+    [SerializeField] private float defaltWobbleX;
+    [SerializeField] private float defaltWobbleY;
+    [SerializeField] private float defaltTextSize;
+
+    private void Awake()
+    {
+        textMesh = GetComponent<TMP_Text>();
+        defaltTextSize = textMesh.fontSize;
+    }
 
     private void Start()
     {
-        textMesh = GetComponent<TMP_Text>();
+        defaltWobbleX = wobbleX;
+        defaltWobbleY = wobbleY;
     }
 
     private void Update()
@@ -33,7 +45,22 @@ public class CharacterWobble : MonoBehaviour
         textMesh.canvasRenderer.SetMesh(mesh);
     }
 
-    private Vector2 Wobble(float time) {
-        return new Vector2(Mathf.Sin(time*3.3f), Mathf.Cos(time*2.5f));
+    private Vector2 Wobble(float time)
+    {
+        return new Vector2(Mathf.Sin(time * wobbleX), Mathf.Cos(time * wobbleY));
+    }
+
+    public void SetDefault()
+    {
+        this.wobbleX = this.defaltWobbleX;
+        this.wobbleY = this.defaltWobbleY;
+        textMesh.fontSize = defaltTextSize;
+    }
+
+    public void SetScary()
+    {
+        this.wobbleX = 500;
+        this.wobbleY = 500;
+        textMesh.fontSize = defaltTextSize * 1.2f;
     }
 }

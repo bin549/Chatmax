@@ -6,6 +6,6 @@ public class Destroyer : MonoBehaviour
 {
     private void Start()
     {
-        Destroy(gameObject, .2f );
+        GameObject.Destroy(gameObject, .2f);
     }
 }

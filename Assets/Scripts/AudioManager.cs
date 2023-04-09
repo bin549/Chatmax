@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     private static AudioManager instance;
 
     private void Awake()
-    {        
+    {
         if (instance != null)
         {
             Destroy(gameObject);
@@ -86,7 +86,7 @@ public class AudioManager : MonoBehaviour
         audioSource.clip = thinkingSound;
         audioSource.Play();
     }
-    
+
     public void PlayThinkedSound()
     {
         audioSource.clip = thinkedSound;

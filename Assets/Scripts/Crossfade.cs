@@ -6,6 +6,7 @@ public class Crossfade : MonoBehaviour
 {
     private Transform transform;
     [SerializeField] private GameObject canvasToShow;
+    [SerializeField] private GameObject logoToShow;
 
     private void Start()
     {
@@ -21,5 +22,6 @@ public class Crossfade : MonoBehaviour
     {
         transform.gameObject.SetActive(false);
         canvasToShow.gameObject.SetActive(true);
+        logoToShow.gameObject.SetActive(true);
     }
 }

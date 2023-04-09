@@ -6,6 +6,7 @@ public class QuitButton : MonoBehaviour
 {
     [SerializeField] private FacePanel facePanel;
     [SerializeField] private UIPanelController uiPanelController;
+    [SerializeField] private MoodBackground moodBackground;
 
     private void Awake()
     {
@@ -20,10 +21,12 @@ public class QuitButton : MonoBehaviour
     private void OnMouseEnter()
     {
         facePanel.ChangeSadMood();
+        moodBackground.ChangeSadMood();
     }
 
     private void OnMouseExit()
     {
         facePanel.ChangeHappyMood();
+        moodBackground.ChangeHappyMood();
     }
 }

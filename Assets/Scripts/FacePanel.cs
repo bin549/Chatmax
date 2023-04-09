@@ -20,6 +20,8 @@ public class FacePanel : MonoBehaviour
     [SerializeField] private string scaryText_en;
     [SerializeField] private string scaryText_zh;
     [SerializeField] private int scary_index;
+    [SerializeField] private CharacterWobble characterWobble;
+    [SerializeField] private FaceWobble faceWobble;
 
     public AppSettings appSettings;
 
@@ -41,9 +43,8 @@ public class FacePanel : MonoBehaviour
     public void ChangeScaryMood()
     {
         scary_index = Random.Range(0, scaryTexts_en.Length);
-         Quaternion originalRot = faceImage.transform.rotation;    
-         faceImage.transform.rotation = originalRot * Quaternion.AngleAxis(180*scary_index, Vector3.up);
-
+        Quaternion originalRot = faceImage.transform.rotation;
+        faceImage.transform.rotation = originalRot * Quaternion.AngleAxis(180 * scary_index, Vector3.up);
         faceImage.sprite = scaryFace;
         if (appSettings.isEnglish)
         {
@@ -60,26 +61,16 @@ public class FacePanel : MonoBehaviour
     public void ChangeHappyMood()
     {
         faceImage.sprite = happyFace;
-        if (appSettings.isEnglish)
-        {
-            moodText.text = happyText_en;
-        }
-        else
-        {
-            moodText.text = happyText_zh;
-        }
+        moodText.text = appSettings.isEnglish ? happyText_en : happyText_zh;
+        characterWobble.SetDefault();
+        faceWobble.SetSad(false);
     }
 
     public void ChangeSadMood()
     {
         faceImage.sprite = sadFace;
-        if (appSettings.isEnglish)
-        {
-            moodText.text = sadText_en;
-        }
-        else
-        {
-            moodText.text = sadText_zh;
-        }
+        moodText.text = appSettings.isEnglish ? sadText_en : sadText_zh;
+        characterWobble.SetScary();
+        faceWobble.SetSad(true);
     }
 }

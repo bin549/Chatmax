@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9922f161d04457db753127140a7749, type: 3}
   m_Name: 1_Avatar 1
   m_EditorClassIdentifier: 
-  headName: Robot
+  headName: "\u673A\u5668\u4EBA"
   headModel: {fileID: 117196, guid: 51b44f2b0c8a544ef81271b67ff80c76, type: 3}
   headAvatar: {fileID: 117196, guid: f1a7aa519e51746839f6c93139730c64, type: 3}
   isMale: 1

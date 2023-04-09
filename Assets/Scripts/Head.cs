@@ -17,7 +17,7 @@ public class Head : ScriptableObject
 
     [Header("Head Female Avatar")]
     public bool isFemaleAvatar;
-    
+
     [Header("Head Robot Avatar")]
     public bool isRobotAvatar;
 }

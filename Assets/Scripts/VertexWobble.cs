@@ -8,6 +8,8 @@ public class VertexWobble : MonoBehaviour
     private TMP_Text textMesh;
     private Mesh mesh;
     private Vector3[] vertices;
+    [SerializeField] private float wobbleX = 3.3f;
+    [SerializeField] private float wobbleY = 2.5f;
 
     private void Start()
     {
@@ -28,7 +30,8 @@ public class VertexWobble : MonoBehaviour
         textMesh.canvasRenderer.SetMesh(mesh);
     }
 
-    private Vector2 Wobble(float time) {
-        return new Vector2(Mathf.Sin(time*3.3f), Mathf.Cos(time*2.5f));
+    private Vector2 Wobble(float time)
+    {
+        return new Vector2(Mathf.Sin(time * wobbleX), Mathf.Cos(time * wobbleX));
     }
 }

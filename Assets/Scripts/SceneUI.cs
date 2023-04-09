@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SceneUI : MonoBehaviour
 {
@@ -22,7 +23,11 @@ public class SceneUI : MonoBehaviour
     [SerializeField] private Sprite femaleSprite;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private QAController qaController;
+    [SerializeField] private GameObject microphoneLogo;
+    [SerializeField] private GameObject keyboardLogo;
+    [SerializeField] private GameObject appVoiceExperienceObj;
     [SerializeField] private Meta.WitAi.TTS.Utilities.TTSSpeaker ttsSpeaker;
+    public TMP_Text promptField;
 
     private void Awake()
     {
@@ -42,10 +47,10 @@ public class SceneUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isUIActive) 
+            if (isUIActive)
             {
                 BackHome();
-            } 
+            }
         }
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -55,10 +60,41 @@ public class SceneUI : MonoBehaviour
             if (isUIActive)
             {
                 qaController.Clear();
-            } else {
-                qaController.Show();
+                promptField.gameObject.SetActive(false);
+                if (appSettings.isUsingKeyboard)
+                {
+                    keyboardLogo.SetActive(false);
+                }
+                else
+                {
+                    microphoneLogo.SetActive(false);
+                    qaController.isSpeakng = false;
+                }
+            }
+            else
+            {
+                qaController.isFirstSpeaking = true;
+                qaController.isFirstQuestion = true;
+                promptField.gameObject.SetActive(true);
+                if (appSettings.isUsingKeyboard)
+                {
+                    keyboardLogo.SetActive(true);
+                    promptField.text = "Try to write something.";
+                }
+                else
+                {
+                    microphoneLogo.SetActive(true);
+                    promptField.text = "Try to say something.";
+                    qaController.Show();
+                };
             }
         }
+    }
+
+    public void ToggleInputDevice()
+    {
+        appSettings.isUsingKeyboard = !appSettings.isUsingKeyboard;
+        inputImage.sprite = appSettings.isUsingKeyboard ? keyboardSprite : microphoneSprite;
     }
 
     public void BackHome()
@@ -73,20 +109,30 @@ public class SceneUI : MonoBehaviour
 
     private void InitUIComponent()
     {
-        if (appSettings.isMale) {
+        if (appSettings.isMale)
+        {
             sexImage.sprite = maleSprite;
             ttsSpeaker.presetVoiceID = "COOPER";
-        } else {
-            sexImage.sprite = femaleSprite;
-            ttsSpeaker.presetVoiceID = "REBECCA";
-        }
-        if (appSettings.isUsingKeyboard) 
-        {
-            inputImage.sprite = keyboardSprite;
         }
         else
         {
+            sexImage.sprite = femaleSprite;
+            ttsSpeaker.presetVoiceID = "REBECCA";
+        }
+        if (appSettings.isUsingKeyboard)
+        {
+            inputImage.sprite = keyboardSprite;
+            microphoneLogo.SetActive(false);
+            keyboardLogo.SetActive(true);
+            promptField.text = "Try to write something.";
+        }
+        else
+        {
+            //  appVoiceExperienceObj.SetActive(true);
             inputImage.sprite = microphoneSprite;
+            microphoneLogo.SetActive(true);
+            keyboardLogo.SetActive(false);
+            promptField.text = "Try to say something.";
         }
     }
 

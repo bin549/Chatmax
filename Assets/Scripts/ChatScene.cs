@@ -10,7 +10,6 @@ public class ChatScene : MonoBehaviour
     [SerializeField] private GameObject femaleAvatar;
     [SerializeField] private GameObject robotAvatar;
 
-
     private void Awake()
     {
         appSettings = FindObjectOfType<AppSettings>();
@@ -23,10 +22,11 @@ public class ChatScene : MonoBehaviour
 
     private void SetupAvatat()
     {
-        if (appSettings.isFemaleAvatar) {
+        if (appSettings.isFemaleAvatar)
+        {
             femaleAvatar.SetActive(true);
-        } 
-        else if (appSettings.isRobotAvatar) 
+        }
+        else if (appSettings.isRobotAvatar)
         {
             robotAvatar.SetActive(true);
             femaleAvatar.SetActive(false);

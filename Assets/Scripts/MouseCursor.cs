@@ -19,5 +19,6 @@ public class MouseCursor : MonoBehaviour
             cursorPos += new Vector2(0, -2.3f);
         }
         transform.position = cursorPos;
+        transform.position = new Vector3(transform.position.x, transform.position.y, -8f);
     }
 }
